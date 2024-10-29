@@ -4,8 +4,7 @@
 #include <math.h>
 #define max 100
 
-
-
+void clearScreen();
 void RaizesSegundoGrau();
 void DerivadasBasicas();
 void CalculadoraSimples();
@@ -15,8 +14,10 @@ void MostrarDerivada(double coeficiente, int expoente);
 int main(){
 	int opcao1;
 	do{
-
-	printf("-----------------------Menu-------------------------\n");
+    getchar();
+    getchar();
+	clearScreen();
+	printf("-----------------------Menu-------------------------\n\n");
 
 	printf("1- Calcular raizes de uma equacao do segundo grau\n");
 	printf("2- Calcular derivadas basicas de polinomios\n");
@@ -24,21 +25,30 @@ int main(){
 	printf("4- Sair\n\n");
 	printf("Digite a opcao desejada: ");
 	scanf("%d",&opcao1);
+	
+	getchar();  
+    clearScreen();
+    
 	switch (opcao1){
 		
 		case 1: 
+		
 		RaizesSegundoGrau();
 		break;
 		case 2: 
+		
 		DerivadasBasicas();
 		break;
 		case 3: 
+		
 		CalculadoraSimples();
 		break;
 		case 4:
+		
 		printf("Operacao finalizada.");
 		break;
 		default:
+		
 		printf("A opcao digitada e invalida!");
 		break;
 	}
@@ -46,7 +56,16 @@ int main(){
 
 	return 0;
 }
-
+void clearScreen() {
+    // Verifica se estamos no Windows
+    #ifdef _WIN32
+        getchar();  
+    clearScreen();;
+    // Para sistemas Unix-like (Linux, macOS)
+    #else
+        system("clear");
+    #endif
+}
 
 void RaizesSegundoGrau() {
     printf("\n------------------Calculadora de raizes de equacoes do segundo grau-----------------------\n\n");
@@ -85,7 +104,9 @@ void CalculadoraSimples(){
      double num1, num2;
      int opcao;     
      do{
-
+	 getchar();
+     getchar();  
+    clearScreen();; 
      printf("-----------------------Menu-----------------------\n\n");
      printf("1- Soma\n");
      printf("2- Subtracao\n");
@@ -99,7 +120,8 @@ void CalculadoraSimples(){
     scanf("%d",&opcao);
     printf("\n\n");
     
-     	
+    getchar();
+    clearScreen();   	
     	
     switch (opcao){
     	
@@ -171,8 +193,10 @@ void CalculadoraSimples(){
 		scanf("%d",&expoente);
 		printf("\n");
 		double elevado = pow(num1, expoente);
+		getchar();
 		printf("\n");
 		printf("Resultado: %.2lf\n",elevado);
+		 
 		break;
 		case 6: 
 		printf("-----------------------Raiz quadrada-----------------------\n\n");
@@ -196,6 +220,8 @@ void CalculadoraSimples(){
 
 
 }while(opcao!=7);
+
+getchar();
 
 }
 
@@ -232,9 +258,12 @@ void DerivadasBasicas(){
 	for(int i = 0; i<qntd; i++){
 		printf("Digite o coeficiente e o expoente (na mesma linha): ");
 		scanf("%lf %d",&coeficiente, &expoente);
+		getchar();
 		MostrarDerivada(coeficiente, expoente);
 		printf("\n");		
 	}
 	printf("\n");
 
+getchar();  
+    clearScreen();;
 }
