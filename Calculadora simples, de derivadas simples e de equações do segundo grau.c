@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <windows.h>
 #define max 100
+
 
 
 void RaizesSegundoGrau();
@@ -15,8 +15,9 @@ void MostrarDerivada(double coeficiente, int expoente);
 int main(){
 	int opcao1;
 	do{
-	system("cls");
-	printf("-----------------------Menu-------------------------");
+
+	printf("-----------------------Menu-------------------------\n");
+
 	printf("1- Calcular raizes de uma equacao do segundo grau\n");
 	printf("2- Calcular derivadas basicas de polinomios\n");
 	printf("3- Calculadora simples\n");
@@ -24,7 +25,7 @@ int main(){
 	printf("Digite a opcao desejada: ");
 	scanf("%d",&opcao1);
 	switch (opcao1){
-	
+		
 		case 1: 
 		RaizesSegundoGrau();
 		break;
@@ -47,38 +48,35 @@ int main(){
 }
 
 
-
-void RaizesSegundoGrau(){
-	printf("\n------------------Calculadora de raizes de equacoes do segundo grau-----------------------\n\n");
-	printf("Uma equacao polinomial do segundo grau eh caracterizada pela forma: ax^2 + bx + c \n\n");
-	printf("Para calcular suas raizes: \n\n");
-	float a, b, c;
-	printf("Digite o coeficiente A: ");
-	scanf("%f",&a);
-	printf("\n");
-	printf("Digite o coeficiente B: ");
-	scanf("%f",&b);
-	printf("\n");
-	printf("Digite o coeficiente C: ");
-	scanf("%f",&c);
-	printf("\n");
-	double delta = pow(b,2) - 4 * a * c;
-	double raiz1 = ((-b) + sqrt(delta)) / (2*a);
-	double raiz2 = ((-b) - sqrt(delta)) / (2*a);
-	if(a == 0){
-		printf("Erro: Nao eh equacao do segundo grau!");
-		return;
-	}
-	if(delta > 0){
-		printf("A primeira raiz eh: %.2lf",raiz1); 
-		printf("\n");
-		printf("A segunda raiz eh: %.2lf",raiz2); 
-	}else if(delta < 0){
-		printf("A raiz nao existe!"); 
-	}else if(delta == 0){
-		printf("Raiz 1 e Raiz 2 sao iguais, o valor eh: %lf",raiz1); 
-	}
-	printf("\n");
+void RaizesSegundoGrau() {
+    printf("\n------------------Calculadora de raizes de equacoes do segundo grau-----------------------\n\n");
+    printf("Uma equacao polinomial do segundo grau eh caracterizada pela forma: ax^2 + bx + c \n\n");
+    printf("Para calcular suas raizes: \n\n");
+    float a, b, c;
+    printf("Digite o coeficiente A: ");
+    scanf("%f", &a);
+    printf("\nDigite o coeficiente B: ");
+    scanf("%f", &b);
+    printf("\nDigite o coeficiente C: ");
+    scanf("%f", &c);
+    printf("\n");
+    if (a == 0) {
+        printf("Erro: Nao eh equacao do segundo grau!\n");
+        return;
+    }
+    double delta = pow(b, 2) - 4 * a * c;
+    if (delta > 0) {
+        double raiz1 = ((-b) + sqrt(delta)) / (2 * a);
+        double raiz2 = ((-b) - sqrt(delta)) / (2 * a);
+        printf("A primeira raiz eh: %.2lf\n", raiz1);
+        printf("A segunda raiz eh: %.2lf\n", raiz2);
+    } else if (delta < 0) {
+        printf("A raiz nao existe!\n");
+    } else {
+        double raiz1 = (-b) / (2 * a);
+        printf("Raiz 1 e Raiz 2 sao iguais, o valor eh: %.2lf\n", raiz1);
+    }
+    printf("\n");
 }
 
 
@@ -87,8 +85,7 @@ void CalculadoraSimples(){
      double num1, num2;
      int opcao;     
      do{
-	 
-     system("cls"); 
+
      printf("-----------------------Menu-----------------------\n\n");
      printf("1- Soma\n");
      printf("2- Subtracao\n");
@@ -102,7 +99,7 @@ void CalculadoraSimples(){
     scanf("%d",&opcao);
     printf("\n\n");
     
-    system("cls");    	
+     	
     	
     switch (opcao){
     	
@@ -175,7 +172,7 @@ void CalculadoraSimples(){
 		printf("\n");
 		double elevado = pow(num1, expoente);
 		printf("\n");
-		printf("Resultado: %.2lf",elevado);
+		printf("Resultado: %.2lf\n",elevado);
 		break;
 		case 6: 
 		printf("-----------------------Raiz quadrada-----------------------\n\n");
@@ -235,10 +232,9 @@ void DerivadasBasicas(){
 	for(int i = 0; i<qntd; i++){
 		printf("Digite o coeficiente e o expoente (na mesma linha): ");
 		scanf("%lf %d",&coeficiente, &expoente);
-		mostrarDerivada(coeficiente, expoente);
+		MostrarDerivada(coeficiente, expoente);
 		printf("\n");		
 	}
 	printf("\n");
 
-system("cls");
 }
